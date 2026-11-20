@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Портфолио — Алексей Иванов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f5fb;--card:#fff;--text:#1a1830;--muted:#6b6985;--a:#6c4cff;--b:#ff4c9a;--line:#e4e2f0;--shadow:0 10px 30px rgba(60,40,140,.12);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0c1a;--card:#171530;--text:#f1f0ff;--muted:#9c9ac0;--line:#2a2750;--shadow:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d0c1a;--card:#171530;--text:#f1f0ff;--muted:#9c9ac0;--line:#2a2750;--shadow:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;overflow-x:hidden}
+.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.35;z-index:-1;animation:float 14s ease-in-out infinite}
+.b1{width:40vw;height:40vw;background:var(--a);top:-10vw;left:-10vw}
+.b2{width:35vw;height:35vw;background:var(--b);bottom:-10vw;right:-8vw;animation-delay:-7s}
+@keyframes float{50%{transform:translate(8vw,6vh) scale(1.15)}}
+#glow{position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(var(--a),transparent 70%);opacity:.18;pointer-events:none;transform:translate(-50%,-50%);z-index:-1;left:-999px}
+header{position:fixed;top:0;left:0;right:0;z-index:10;padding:calc(env(safe-area-inset-top,0px) + 12px) 5vw 12px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:1.3rem;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none}
+nav{display:flex;gap:24px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem;transition:.25s}
+nav a:hover{color:var(--a)}
+.icon-btn{background:var(--card);border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;transition:.3s}
+.icon-btn:hover{transform:rotate(25deg) scale(1.1)}
+#burger{display:none}
+section{padding:100px 5vw;max-width:1100px;margin:auto}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
+.hi{color:var(--a);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem}
+h1{font-size:clamp(2.4rem,7vw,5rem);line-height:1.1;font-weight:800;margin:12px 0}
+.grad{background:linear-gradient(90deg,var(--a),var(--b),var(--a));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:200%}}
+.typing{font-size:clamp(1.1rem,3vw,1.7rem);color:var(--muted);min-height:2.2em}
+.typing::after{content:'|';animation:blink 1s steps(2) infinite;color:var(--a)}
+@keyframes blink{50%{opacity:0}}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn{padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;transition:.3s;border:2px solid var(--a);color:var(--text);display:inline-block}
+.btn.main{background:linear-gradient(90deg,var(--a),var(--b));border-color:transparent;color:#fff;box-shadow:0 8px 24px rgba(108,76,255,.4)}
+.btn:hover{transform:translateY(-4px)}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:36px;position:relative;display:inline-block}
+h2::after{content:'';position:absolute;left:0;bottom:-8px;width:60%;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--a),var(--b))}
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center}
+.avatar{aspect-ratio:1;border-radius:30% 70% 70% 30%/30% 30% 70% 70%;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center;font-size:6rem;font-weight:800;color:#fff;animation:morph 8s ease-in-out infinite;box-shadow:var(--shadow)}
+@keyframes morph{50%{border-radius:70% 30% 30% 70%/70% 70% 30% 30%}}
+.stats{display:flex;gap:30px;margin-top:24px;flex-wrap:wrap}
+.stats b{display:block;font-size:2rem;color:var(--a)}
+.stats span{color:var(--muted);font-size:.9rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px 40px}
+.bar-top{display:flex;justify-content:space-between;font-weight:600;margin-bottom:6px}
+.bar{height:10px;background:var(--line);border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:10px;background:linear-gradient(90deg,var(--a),var(--b));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow);transition:transform .2s ease-out,box-shadow .3s;transform-style:preserve-3d}
+.card:hover{box-shadow:0 18px 40px rgba(108,76,255,.25)}
+.card .em{font-size:2.4rem;display:block;margin-bottom:10px}
+.card h3{margin-bottom:6px}
+.card p{color:var(--muted);font-size:.95rem}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.tags span{font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:20px;background:color-mix(in srgb,var(--a) 14%,transparent);color:var(--a)}
+.contact{text-align:center}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 26px}
+.socials{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+.socials a{padding:10px 20px;border-radius:30px;background:var(--card);border:1px solid var(--line);color:var(--text);text-decoration:none;font-weight:600;transition:.3s}
+.socials a:hover{background:var(--a);color:#fff;transform:translateY(-3px)}
+footer{text-align:center;color:var(--muted);padding:30px 5vw calc(env(safe-area-inset-bottom,0px) + 30px);font-size:.85rem}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media (max-width:760px){
+#burger{display:block}
+nav{position:fixed;top:0;right:-100%;height:100vh;width:70%;flex-direction:column;justify-content:center;background:var(--card);transition:right .4s;box-shadow:var(--shadow);gap:30px}
+nav.open{right:0}
+nav a{font-size:1.2rem}
+.about{grid-template-columns:1fr}
+.avatar{max-width:240px;margin:auto}
+section{padding:80px 6vw}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div id="glow"></div>
+
+<header>
+  <a href="#hero" class="logo">&lt;Алексей/&gt;</a>
+  <nav id="nav">
+    <a href="#about">Обо мне</a><a href="#skills">Навыки</a><a href="#projects">Проекты</a><a href="#contact">Контакты</a>
+    <button class="icon-btn" id="theme" aria-label="Сменить тему">🌓</button>
+  </nav>
+  <button class="icon-btn" id="burger" aria-label="Меню">☰</button>
+</header>
+
+<section id="hero">
+  <span class="hi">Привет, я</span>
+  <h1><span class="grad">Алексей Иванов</span></h1>
+  <div class="typing" id="typing"></div>
+  <div class="btns">
+    <a href="#projects" class="btn main">Мои работы</a>
+    <a href="#contact" class="btn">Связаться</a>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="rv">Обо мне</h2>
+  <div class="about rv">
+    <div class="avatar">А</div>
+    <div>
+      <p>Я веб-разработчик, который любит превращать идеи в удобные и красивые интерфейсы. Пишу чистый код, слежу за производительностью и уделяю внимание деталям и анимациям.</p>
+      <p style="margin-top:12px">Постоянно учусь новому и с радостью берусь за интересные проекты — от лендингов до сложных веб-приложений.</p>
+      <div class="stats">
+        <div><b data-n="3">0</b><span>года опыта</span></div>
+        <div><b data-n="25">0</b><span>проектов</span></div>
+        <div><b data-n="15">0</b><span>клиентов</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="rv">Навыки</h2>
+  <div class="skills rv">
+    <div><div class="bar-top"><span>HTML / CSS</span><span>95%</span></div><div class="bar"><i data-w="95"></i></div></div>
+    <div><div class="bar-top"><span>JavaScript</span><span>88%</span></div><div class="bar"><i data-w="88"></i></div></div>
+    <div><div class="bar-top"><span>React</span><span>80%</span></div><div class="bar"><i data-w="80"></i></div></div>
+    <div><div class="bar-top"><span>Node.js</span><span>70%</span></div><div class="bar"><i data-w="70"></i></div></div>
+    <div><div class="bar-top"><span>UI / UX дизайн</span><span>75%</span></div><div class="bar"><i data-w="75"></i></div></div>
+    <div><div class="bar-top"><span>Git</span><span>85%</span></div><div class="bar"><i data-w="85"></i></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="rv">Проекты</h2>
+  <div class="grid">
+    <div class="card rv"><span class="em">🛒</span><h3>Интернет-магазин</h3><p>Каталог, корзина и оплата с быстрой загрузкой и адаптивным дизайном.</p><div class="tags"><span>React</span><span>Node.js</span></div></div>
+    <div class="card rv"><span class="em">📊</span><h3>Панель аналитики</h3><p>Дашборд с интерактивными графиками и фильтрами в реальном времени.</p><div class="tags"><span>JS</span><span>Charts</span></div></div>
+    <div class="card rv"><span class="em">✈️</span><h3>Сайт путешествий</h3><p>Красивый лендинг с плавными анимациями и галереей мест.</p><div class="tags"><span>HTML</span><span>CSS</span></div></div>
+    <div class="card rv"><span class="em">💬</span><h3>Мессенджер</h3><p>Чат с комнатами, уведомлениями и обменом сообщениями онлайн.</p><div class="tags"><span>WebSocket</span><span>Vue</span></div></div>
+    <div class="card rv"><span class="em">🎮</span><h3>Браузерная игра</h3><p>Небольшая аркада на canvas с рекордами и мобильным управлением.</p><div class="tags"><span>Canvas</span><span>JS</span></div></div>
+    <div class="card rv"><span class="em">📱</span><h3>Мобильное приложение</h3><p>Трекер привычек с напоминаниями и аккуратным интерфейсом.</p><div class="tags"><span>PWA</span><span>UI</span></div></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="rv">Контакты</h2>
+  <p class="rv">Есть проект или идея? Напишите мне — обсудим, как сделать это вместе.</p>
+  <a class="btn main rv" href="mailto:hello@example.com">Написать письмо</a>
+  <div class="socials rv">
+    <a href="#">GitHub</a><a href="#">Telegram</a><a href="#">LinkedIn</a><a href="#">Instagram</a>
+  </div>
+</section>
+
+<footer>© 2026 Алексей Иванов. Все права защищены.</footer>
+
+<script>
+// Печатающийся текст
+const words=['Фронтенд-разработчик','Веб-дизайнер','Создаю крутые сайты'];
+const t=document.getElementById('typing');let w=0,c=0,del=false;
+(function type(){
+  const cur=words[w];
+  t.textContent=cur.slice(0,del?--c:++c);
+  let d=del?40:90;
+  if(!del&&c===cur.length){del=true;d=1400}
+  else if(del&&c===0){del=false;w=(w+1)%words.length;d=300}
+  setTimeout(type,d);
+})();
+
+// Появление при прокрутке, шкалы и счётчики
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-w]').forEach(i=>i.style.width=i.dataset.w+'%');
+  e.target.querySelectorAll('[data-n]').forEach(n=>{
+    const to=+n.dataset.n;let v=0;
+    const s=setInterval(()=>{v++;n.textContent=v+'+';if(v>=to)clearInterval(s)},50);
+    n.removeAttribute('data-n');
+  });
+  io.unobserve(e.target);
+}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3)*0.1+'s';io.observe(el)});
+
+// Мобильное меню
+const nav=document.getElementById('nav');
+document.getElementById('burger').onclick=()=>nav.classList.toggle('open');
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+
+// Тема
+const root=document.documentElement;
+try{const s=localStorage.getItem('theme');if(s)root.dataset.theme=s}catch(e){}
+document.getElementById('theme').onclick=()=>{
+  const dark=getComputedStyle(root).colorScheme==='dark'||root.dataset.theme==='dark';
+  const next=dark?'light':'dark';root.dataset.theme=next;
+  try{localStorage.setItem('theme',next)}catch(e){}
+};
+
+// Свечение за курсором и 3D-наклон карточек
+const g=document.getElementById('glow');
+addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+document.querySelectorAll('.card').forEach(c=>{
+  c.addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch')return;
+    const r=c.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-6px)`;
+  });
+  c.addEventListener('pointerleave',()=>c.style.transform='');
+});
+</script>
+</body>
+</html>
